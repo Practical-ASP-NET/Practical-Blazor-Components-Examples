@@ -1,0 +1,54 @@
+﻿@page "/PO/{Id:guid}"
+@using Courses.Demos.Pages.PurchaseOrderDashboard.Models
+@using Courses.Demo.Shared
+@inject IPurchaseOrderAPI PurchaseOrderApi
+
+<h3 class="mb-4">Purchase Order Details</h3>
+
+@if (details != null)
+{
+    <div class="d-flex gap-2">
+        <div class="p-2 border border-1 flex-grow-1" id="outstanding">
+            <Outstanding Id="Id" 
+                         Lines="details.Lines.Where(x=>x.Received == false)"
+                         OnMaterialReceived="MaterialReceived"/>
+        </div>
+        <div class="p-2 border border-1 flex-grow-1" id="received">
+            <Received Id="Id" Lines = "details.Lines.Where(x=>x.Received)"/>
+        </div>
+    </div>  
+}
+
+<div class="btn btn-danger mt-4" @onclick="ResetPO">Reset PO Data</div>
+
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private PurchaseOrder? details;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshData();
+    }
+
+    private async Task ResetPO()
+    {
+        await PurchaseOrderApi.Reset();
+        await RefreshData();
+    }
+
+    private async Task MaterialReceived(PurchaseOrder.Line line)
+    {
+        await PurchaseOrderApi.ReceiveMaterial(Id, line.Id);
+        await RefreshData();
+    }
+
+    private async Task RefreshData()
+    {
+        details = await PurchaseOrderApi.Get(Id);
+    }
+
+}

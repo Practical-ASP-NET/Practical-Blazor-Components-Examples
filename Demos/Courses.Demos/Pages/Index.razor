@@ -1,0 +1,23 @@
+﻿@using Courses.Demos.Pages.PurchaseOrderDashboard.Models
+@using Courses.Demo.Shared
+@inject IPurchaseOrderAPI PurchaseOrderApi
+@page "/"
+
+@if (poList != null)
+{
+    @foreach (var po in poList)
+    {
+        <a href="/PO/@po.Id">View Purchase Order Details</a>
+    }
+}
+
+@code {
+
+    private IEnumerable<PurchaseOrder> poList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        poList = await PurchaseOrderApi.List();
+    }
+
+}

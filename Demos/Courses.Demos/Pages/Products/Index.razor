@@ -1,0 +1,24 @@
+﻿@page "/Products"
+@using Courses.Demo.Shared
+@inject IProductApi ProductApi
+
+@if (products != null)
+{
+    <div class="row row-cols-1 row-cols-md-4 gap-4">
+        @foreach (var product in products)
+        {
+            <ProductCard Product="product"/>
+        }
+    </div>
+}
+
+@code {
+
+    private IEnumerable<Product>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await ProductApi.List();
+    }
+
+}
