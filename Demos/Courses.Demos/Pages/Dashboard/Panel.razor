@@ -1,0 +1,18 @@
+﻿<div class="card">
+    <div class="card-header">
+        <h3>@Heading</h3>
+    </div>
+    <div class="card-body">
+        <p>@Content</p>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]
+    public string Heading { get; set; }
+    
+    [Parameter]
+    public string Content { get; set; }
+    
+}
