@@ -2,7 +2,6 @@ using Courses.Demo.Shared;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Courses.Demos;
-using Courses.Demos.Pages.PurchaseOrderDashboard.Models;
 using Refit;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
