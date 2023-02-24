@@ -11,10 +11,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+var apiUrl = builder.HostEnvironment.BaseAddress;
+
 builder.Services.AddRefitClient<IPurchaseOrderAPI>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5102/"));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
 
 builder.Services.AddRefitClient<IProductApi>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5102/"));
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
 
 await builder.Build().RunAsync();
