@@ -1,8 +1,9 @@
 ﻿@using Courses.Demo.Shared
-<div class="card">
+
+<div class="card" style="@FeaturedStyle(Product)">
     <div class="card-body">
         <h5 class="card-title">@Product.Name</h5>
-        <p class="card-text">@Product.Description</p>
+        <p>@Product.Description</p>
         <p>£@Product.Price</p>
         <p>
             <a href="details">View</a>
@@ -14,5 +15,8 @@
 
     [Parameter]
     public Product Product { get; set; }
-    
+
+    string FeaturedStyle(Product product) 
+        => product.Featured ? "border: 3px solid #3e6dbf" : "";
+
 }

@@ -1,0 +1,13 @@
+﻿<div class="border p-4 rounded-2" style="background-color: @BackgroundColour; color:  white;">
+    @Text
+</div>
+
+@code {
+    
+    [Parameter]
+    public string Text { get; set; }
+
+    [Parameter]
+    public string BackgroundColour { get; set; } = "#0b5ed7";
+
+}

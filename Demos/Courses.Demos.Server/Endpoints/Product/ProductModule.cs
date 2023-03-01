@@ -16,7 +16,8 @@ public class ProductModule : ICarterModule
             {
                 Name = $"Product {i}",
                 Description = $"Description {i}",
-                Price = i * 10
+                Price = i * 10,
+                Featured = i == 1
             });
 
         return Results.Ok(products);
