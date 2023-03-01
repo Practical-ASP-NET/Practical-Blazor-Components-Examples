@@ -1,0 +1,29 @@
+﻿<div class="card" style="@Style">
+    <div class="card-body">
+        <h5 class="card-title">@Title</h5>
+        @ChildContent
+        <p>
+            <a href="@Link">@LinkText</a>
+        </p>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]
+    public string Title { get; set; }
+    
+    [Parameter]
+    public string Link { get; set; }
+
+    [Parameter]
+    public string LinkText { get; set; }
+    
+    [Parameter]
+    public string Style { get; set; }
+    
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+}
