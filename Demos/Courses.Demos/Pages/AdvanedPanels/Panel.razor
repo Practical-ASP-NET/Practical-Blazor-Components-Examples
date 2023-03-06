@@ -1,0 +1,25 @@
+﻿<div class="border border-2">
+    <div class="p-4 @TitleClass() text-white">
+        <h4 class="mb-0">@Title</h4>
+    </div>
+    <div class="p-4 fs-6">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public bool Important { get; set; }
+
+    string TitleClass() {
+        return Important ? "bg-danger" : "bg-primary";
+    }
+
+}

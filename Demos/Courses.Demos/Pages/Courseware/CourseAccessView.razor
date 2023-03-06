@@ -1,0 +1,30 @@
+﻿@inject CustomerCoursesStore CustomerCoursesStore
+
+@if(courseDetails != null){
+    @HasAccess
+}
+else
+{
+    @NoAccess
+}
+
+@code {
+    
+    [Parameter]
+    public RenderFragment<CustomerCourseDetails> HasAccess { get; set; }
+
+    [Parameter]
+    public RenderFragment NoAccess { get; set; }
+
+    [Parameter]
+    public int CourseId { get; set; }  
+
+    CustomerCourseDetails? courseDetails;
+
+    protected override void OnInitialized(){
+
+        courseDetails = CustomerCoursesStore.Get(CourseId);
+
+    } 
+
+}
