@@ -21,4 +21,11 @@
       <None Include="wwwroot\avatar.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Pages\AdvancedPanels\After\ComplexPanel.razor" />
+      <AdditionalFiles Include="Pages\AdvancedPanels\After\Index.razor" />
+      <AdditionalFiles Include="Pages\AdvancedPanels\After\Panel.razor" />
+      <AdditionalFiles Include="Pages\AdvancedPanels\After\_Imports.razor" />
+    </ItemGroup>
+
 </Project>

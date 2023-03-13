@@ -1,0 +1,11 @@
+﻿<Panel Title="@Title" ChildContent="@ChildContent" BackgroundClass="bg-danger" />
+
+@code {
+    
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    
+}

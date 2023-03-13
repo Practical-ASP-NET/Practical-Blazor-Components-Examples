@@ -1,0 +1,39 @@
+﻿<div class="border border-2 @visibility">
+    <div class="p-4 d-flex justify-content-between @TitleClass text-white">
+        <h4 class="mb-0">@Title</h4>
+        @if (Dismissable)
+        {
+            <button class="btn-close" @onclick="()=>dismissed = true"></button>
+        }
+    </div>
+    <div class="p-4 fs-6">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string TitleClass { get; set; } = "bg-primary";
+
+    [Parameter]
+    public bool Dismissable { get; set; }
+
+    private bool dismissed = false;
+    
+    private string visibility => dismissed ? "d-none" : "d-block";
+    
+    private void Dismiss()
+    {
+        if (Dismissable)
+        {
+            dismissed = true;
+        }
+    }
+}
