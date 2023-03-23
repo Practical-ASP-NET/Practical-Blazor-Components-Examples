@@ -1,7 +1,7 @@
 ﻿<div class="border border-2 @visibility">
     <div class="p-4 d-flex justify-content-between @TitleClass text-white">
         <h4 class="mb-0">@Title</h4>
-        @if (Dismissable)
+        @if (Dismissible)
         {
             <button class="btn-close" @onclick="()=>dismissed = true"></button>
         }
@@ -23,7 +23,7 @@
     public string TitleClass { get; set; } = "bg-primary";
 
     [Parameter]
-    public bool Dismissable { get; set; }
+    public bool Dismissible { get; set; }
 
     private bool dismissed = false;
     
@@ -31,7 +31,7 @@
     
     private void Dismiss()
     {
-        if (Dismissable)
+        if (Dismissible)
         {
             dismissed = true;
         }

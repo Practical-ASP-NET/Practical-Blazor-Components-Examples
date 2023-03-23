@@ -1,0 +1,39 @@
+﻿@page "/solution"
+@inject KanbanStore Store
+
+@if(columns != null){
+    <div class="d-flex vh-100">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="p-2 border-bottom bg-primary text-white">
+                <h3>Default Board</h3>
+            </div>
+            <div class="p-4 flex-grow-1 d-flex">
+                @foreach (var column in columns)
+                {
+                    <div class="p-2 border-end w-25">
+                        <h3 class="mb-2">@column.Name</h3>
+                        <div class="py-3 d-flex flex-column">
+                            @foreach (var card in cards.Where(x => x.ColumnId == column.Id))
+                            {                            
+                                <KanbanCard Card="card"/>                        
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>  
+}
+
+@code {
+
+    List<Column> columns;
+    List<Card> cards;
+
+    protected override async Task OnInitializedAsync(){
+
+        columns = Store.GetBoard();
+        cards = Store.GetCards();
+    }
+
+}

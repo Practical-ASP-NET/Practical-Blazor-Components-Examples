@@ -26,6 +26,9 @@
       <AdditionalFiles Include="Pages\AdvancedPanels\After\Index.razor" />
       <AdditionalFiles Include="Pages\AdvancedPanels\After\Panel.razor" />
       <AdditionalFiles Include="Pages\AdvancedPanels\After\_Imports.razor" />
+      <AdditionalFiles Include="Pages\Products\V3\Card.razor" />
+      <AdditionalFiles Include="Pages\Products\V3\Index.razor" />
+      <AdditionalFiles Include="Pages\Products\V3\ProductCard.razor" />
     </ItemGroup>
 
 </Project>
