@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Markdig" Version="0.31.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="0.1.0-alpha.22351.1" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.2" PrivateAssets="all" />
@@ -29,6 +30,10 @@
       <AdditionalFiles Include="Pages\Products\V3\Card.razor" />
       <AdditionalFiles Include="Pages\Products\V3\Index.razor" />
       <AdditionalFiles Include="Pages\Products\V3\ProductCard.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\LifecycleDemos\" />
     </ItemGroup>
 
 </Project>
