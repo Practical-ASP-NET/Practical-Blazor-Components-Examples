@@ -1,0 +1,24 @@
+﻿@page "/peoplegreeter"
+
+<ul>
+    @foreach (var name in names)
+    {
+        <li>
+            <button @onclick="SayHello" class="btn-primary">
+                Greet @name
+            </button>
+        </li>
+    }
+</ul>
+
+
+@code {
+
+    List<string> names = new() { "Matthew", "Alice", "Ben", "Martha", "Indigo", "Tom" };
+
+    private void SayHello()
+    {
+        Console.WriteLine("Hello");
+    }
+
+}
