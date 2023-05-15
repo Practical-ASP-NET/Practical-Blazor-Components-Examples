@@ -1,15 +1,24 @@
-﻿<section>
-    <aside class="customer">
-        You have access to this course, click here to view it.
-    </aside>
-</section>
+﻿<button @onclick="@(()=>_isCustomer = !_isCustomer)">Toggle View</button>
 
-<section>
-    <aside class="non-customer">
-        Buy this course now, for just $39.99!
-    </aside>
-</section>
+@if (_isCustomer)
+{
+    <section>
+        <aside class="customer">
+            You have access to this course, click here to view it.
+        </aside>
+    </section>
+}
+else
+{
+    <section>
+        <aside class="non-customer">
+            Buy this course now, for just $39.99!
+        </aside>
+    </section>
+}
 
 @code {
+    
+    bool _isCustomer = false;
     
 }

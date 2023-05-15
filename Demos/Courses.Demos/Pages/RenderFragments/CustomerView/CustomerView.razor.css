@@ -1,3 +1,11 @@
+button {
+    margin-bottom: 1em;
+    background-color: #d4f8cc;
+    border: 2px solid #a4a4a4;
+    padding: 0.4em;
+    border-radius: 0.4em;
+}
+
 aside {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
