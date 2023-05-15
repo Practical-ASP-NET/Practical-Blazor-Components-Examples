@@ -1,0 +1,15 @@
+aside {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+aside.customer {
+    background-color: #cce0ff;
+}
+
+aside.non-customer {
+    background-color: #ffcccc;
+}

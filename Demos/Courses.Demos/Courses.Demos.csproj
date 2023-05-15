@@ -36,7 +36,6 @@
 
     <ItemGroup>
       <Folder Include="Pages\LifecycleDemos\" />
-      <Folder Include="Pages\RenderFragments\" />
     </ItemGroup>
 
     <ItemGroup>
