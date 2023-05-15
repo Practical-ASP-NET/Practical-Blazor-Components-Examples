@@ -4,24 +4,24 @@ section{
     gap: 1em;
 }
 
-.news-card {
+::deep .news-card {
     box-shadow: 0 0 0.6em 0 rgba(0, 0, 0, 0.2);
     border-radius: 0.4em;
     border: 1px solid rgba(0, 0, 0, 0.125);
     padding: 1rem;
 }
 
-h4 {
+::deep h4 {
     font-size: 1.2em;
     font-weight: 600;
     color: #3a3a3a;
 }
 
-h5 {
+::deep h5 {
     font-size: 1.1em;
 }
 
-span {
+::deep span {
     font-size: 0.9em;
     color: #666;
     padding: 0.4em;

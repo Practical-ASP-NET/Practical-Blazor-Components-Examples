@@ -1,0 +1,24 @@
+﻿<div class="news-card">
+    <h5>@User/@Repository</h5>
+    <p>@Description</p>
+    @foreach (var lang in Languages)
+    {
+        <span>@lang</span>}
+   
+</div>
+
+@code {
+
+    [Parameter]
+    public string User { get; set; }
+
+    [Parameter]
+    public string Repository { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public List<string> Languages { get; set; }
+
+}

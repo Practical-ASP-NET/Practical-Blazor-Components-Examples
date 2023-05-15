@@ -7,25 +7,25 @@
     <h4>Trending Repositories</h4>
 
     <section>
-        <div class="news-card">
-            <h5>jonhilton/practicalBlazorComponents</h5>
-            <p>A new online, interactive workshop!</p>
-            <span>C#</span>
-            <span>JavaScript</span>
-        </div>
-        <div class="news-card">
-            <h5>AdrienTorris/awesome-blazor</h5>
-            <p>Resources for Blazor, a .NET web framework using 
-                C#/Razor and HTML that runs in the browser with WebAssembly.</p>
-            <span>C#</span>
-        </div>
-        <div class="news-card">
-            <h5>microsoft/dotnet</h5>
-            <p>This repo is the official home of .NET on GitHub. 
-                It's a great starting point to find many .NET OSS projects from Microsoft 
-                and the community, including many that are part of the .NET Foundation.</p>
-            <span>C#</span>
-        </div>
+        <Card User="jonhilton"
+              Repository="practicalBlazorComponents"
+              Description="A new online, interactive workshop!"
+              Languages="@(new List<string> { "C#", "JavaScript" })"/>
+
+        <Card User="AdrienTorris"
+              Repository="awesome-blazor"
+              Description="Resources for Blazor, a .NET web framework using
+                                                   C#/Razor and HTML that runs in the browser with WebAssembly."
+              Languages="@(new List<string> { "C#" })"/>
+
+        <Card User="microsoft"
+              Repository="dotnet"
+              Description="This repo is the official home of .NET on GitHub.
+                                                   It's a great starting point to find many .NET OSS projects from Microsoft
+                                                   and the community, including many that are part of the .NET Foundation."
+              Languages="@(new List<string> { "C#" })"/>
+
     </section>
+
 
 </section>

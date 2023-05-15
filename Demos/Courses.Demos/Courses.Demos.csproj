@@ -30,10 +30,18 @@
       <AdditionalFiles Include="Pages\Products\V3\Card.razor" />
       <AdditionalFiles Include="Pages\Products\V3\Index.razor" />
       <AdditionalFiles Include="Pages\Products\V3\ProductCard.razor" />
+      <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\SocialPost.razor" />
+      <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\_Main.razor" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Pages\LifecycleDemos\" />
+      <Folder Include="Pages\RenderFragments\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\SocialMedia\SocialPost.razor" />
+      <_ContentIncludedByDefault Remove="Pages\SocialMedia\_Main.razor" />
     </ItemGroup>
 
 </Project>
