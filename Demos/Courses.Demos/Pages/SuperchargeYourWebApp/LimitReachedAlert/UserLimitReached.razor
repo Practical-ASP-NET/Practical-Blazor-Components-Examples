@@ -1,0 +1,24 @@
+﻿@if (_showAlert)
+{
+    <aside>
+        <span>Warning - You've reached your limit of 3 non-admin users</span> 
+        - <a href="javascript:void(0);">Change plan</a>
+    </aside>
+}
+
+@code {
+
+    [Parameter]
+    public int UsersCreated { get; set; }
+
+    [Parameter]
+    public int Limit { get; set; } = 3;
+
+    bool _showAlert = false;
+
+    protected override void OnParametersSet()
+    {
+        _showAlert = UsersCreated >= Limit;
+    }
+
+}

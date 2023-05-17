@@ -1,0 +1,18 @@
+button {
+    border: 1px solid #ccc !important;
+    border-radius: 0.2em !important;
+    padding: 0.5em !important;
+    background-color: #caeec2 !important;  
+    color: black !important;
+}
+
+section {
+    margin-bottom: 1em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+section > p {
+    margin: 0;
+}

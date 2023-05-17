@@ -1,0 +1,22 @@
+﻿@page "/exercises/userlimitalert"
+
+<section>
+    <button @onclick="AddUser">Add User</button>
+    <p>@_usersCreated Users</p>
+</section>
+
+<UserLimitReached UsersCreated="@_usersCreated" Limit="3" />
+
+@code {
+
+    int _usersCreated = 0;
+
+    private void AddUser()
+    {
+        if (_usersCreated < 3)
+        {
+            _usersCreated++;
+        }
+    }
+
+}

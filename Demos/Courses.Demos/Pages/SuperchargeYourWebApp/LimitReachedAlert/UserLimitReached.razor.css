@@ -1,0 +1,16 @@
+aside {
+    background-color: #f44336;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;    
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+}
