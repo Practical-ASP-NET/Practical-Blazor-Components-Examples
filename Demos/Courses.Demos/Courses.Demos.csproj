@@ -51,7 +51,6 @@
 
     <ItemGroup>
       <Folder Include="Pages\LifecycleDemos\" />
-      <Folder Include="Pages\SuperchargeYourWebApp\" />
     </ItemGroup>
 
     <ItemGroup>
