@@ -27,20 +27,48 @@
       <AdditionalFiles Include="Pages\AdvancedPanels\After\Index.razor" />
       <AdditionalFiles Include="Pages\AdvancedPanels\After\Panel.razor" />
       <AdditionalFiles Include="Pages\AdvancedPanels\After\_Imports.razor" />
-      <AdditionalFiles Include="Pages\Products\V3\Card.razor" />
-      <AdditionalFiles Include="Pages\Products\V3\Index.razor" />
-      <AdditionalFiles Include="Pages\Products\V3\ProductCard.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\Before\Index.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\Before\_Imports.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\V2\Index.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\V2\ProductCard.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\V2\_Imports.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\Products\V3\_Imports.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\After\Index.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\After\Outstanding.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\After\Received.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\After\_Imports.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\Before\Index.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\Before\Outstanding.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\Before\Received.razor" />
+      <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\Before\_Imports.razor" />
       <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\SocialPost.razor" />
       <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\_Main.razor" />
+      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\ImportantPanel.razor" />
+      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\Index.razor" />
+      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\Panel.razor" />
+      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\_Imports.razor" />
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Pages\ComponentCommunication\" />
       <Folder Include="Pages\LifecycleDemos\" />
+      <Folder Include="Pages\SuperchargeYourWebApp\" />
     </ItemGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Pages\SocialMedia\SocialPost.razor" />
       <_ContentIncludedByDefault Remove="Pages\SocialMedia\_Main.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Courseware\CourseAccessView.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Courseware\Index.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\Before\Index.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\Before\_Imports.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V2\Index.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V2\ProductCard.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V2\_Imports.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V3\Card.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V3\Index.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V3\ProductCard.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Products\V3\_Imports.razor" />
     </ItemGroup>
 
 </Project>
