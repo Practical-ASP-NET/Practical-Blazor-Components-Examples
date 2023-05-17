@@ -50,7 +50,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages\ComponentCommunication\" />
       <Folder Include="Pages\LifecycleDemos\" />
       <Folder Include="Pages\SuperchargeYourWebApp\" />
     </ItemGroup>

@@ -1,0 +1,25 @@
+﻿<section>
+    <span>Count is @count</span>
+</section>
+
+<button @onclick="Increment">Increment</button>
+
+@code {
+
+    [Parameter]
+    public EventCallback<CountIncrementedArgs> OnIncremented { get; set; }
+
+    int count = 0;
+	
+    void Increment(){
+        count++;
+
+        var args = new CountIncrementedArgs {
+            NewCount = count,
+            IncrementedBy = 1
+        };
+        
+        OnIncremented.InvokeAsync(args);
+    }
+
+}

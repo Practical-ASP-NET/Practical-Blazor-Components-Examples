@@ -1,0 +1,10 @@
+﻿@page "/exercises/multiplecounters"
+
+<Counter OnIncremented="LogIncremented"/>
+
+@code {
+
+	void LogIncremented(CountIncrementedArgs args){
+		Console.WriteLine("Count Incremented, new count is: " + args.NewCount);
+	}
+}
