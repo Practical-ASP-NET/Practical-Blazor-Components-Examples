@@ -1,0 +1,42 @@
+﻿@page "/exercises/encapsulateloading"
+
+@if (_loading)
+{
+    <p>Loading...</p>
+}
+else if (_studentDetails != null)
+{
+    <dl>
+        <dt>Name</dt>
+        <dd>@_studentDetails.Name</dd>
+
+        <dt>Enrolled</dt>
+        <dd>@_studentDetails.Enrolled.ToShortDateString()</dd>
+    </dl>
+}
+else if (_errorOccurred)
+{
+    <p>An error occurred fetching Student Details!</p>
+}
+
+@code {
+    private bool _loading;
+    private StudentDetails? _studentDetails;
+    private bool _errorOccurred;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _studentDetails = await StudentAPI.GetStudentDetails();
+        }
+        catch (Exception e)
+        {
+            _errorOccurred = true;
+        }
+
+        _loading = false;
+    }
+}
