@@ -43,8 +43,6 @@
       <AdditionalFiles Include="Pages\ComponentCommunication\PurchaseOrderDashboard\Before\_Imports.razor" />
       <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\SocialPost.razor" />
       <AdditionalFiles Include="Pages\RenderFragments\SocialMedia\_Main.razor" />
-      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\ImportantPanel.razor" />
-      <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\Index.razor" />
       <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\Panel.razor" />
       <AdditionalFiles Include="Pages\SuperchargeYourWebApp\ExtendToModify\_Imports.razor" />
     </ItemGroup>
