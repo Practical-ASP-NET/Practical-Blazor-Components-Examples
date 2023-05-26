@@ -22,3 +22,5 @@ When you've successfully launched the Server app you'll see a handy button (top 
 Clicking that will run the app (via this project) using WASM, or (via the Server app) Blazor Server.
 
 If you want to debug the app I'd probably stick with Blazor Server (debugging WASM gets complicated!)
+
+![image](https://github.com/Practical-ASP-NET/Practical-Blazor-Components-Examples/assets/102787/4f314f85-eb75-4044-b7c4-f23b3ad8f51f)
