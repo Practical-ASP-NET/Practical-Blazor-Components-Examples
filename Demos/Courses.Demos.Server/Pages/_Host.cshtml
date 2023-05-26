@@ -2,8 +2,8 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    Request.Query.TryGetValue("wasm", out var wasmMode );
-    bool wasm = wasmMode == "True";
+    var wasm = Request.Query.ContainsKey("wasm");
+    Console.WriteLine("From HOST " + (wasm ? "WASM": "Server"));
 }
 
 <!DOCTYPE html>
