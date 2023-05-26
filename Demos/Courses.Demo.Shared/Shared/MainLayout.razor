@@ -1,9 +1,31 @@
-﻿@inherits LayoutComponentBase
+﻿@using Blazored.LocalStorage
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService LocalStorage
 
 <div class="page">
     <main>
+        <header>
+            <button @onclick="ToggleWASM">Toggle WASM</button>
+        </header>
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
+
+@code {
+
+    private bool? wasmMode;
+
+    async Task ToggleWASM()
+    {
+        wasmMode = await LocalStorage.GetItemAsync<bool?>("wasm");
+        wasmMode = !wasmMode ?? true;
+        await LocalStorage.SetItemAsync("wasm", wasmMode);
+        
+        var newUri = NavigationManager.GetUriWithQueryParameter("wasm", wasmMode);
+        NavigationManager.NavigateTo(newUri, new NavigationOptions {ForceLoad = true});
+    }
+
+}

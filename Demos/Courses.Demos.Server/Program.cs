@@ -1,10 +1,9 @@
+using Blazored.LocalStorage;
 using Carter;
-using Courses.Demo.Shared;
 using Courses.Demo.Shared.Contracts;
 using Courses.Demo.Shared.Pages.PurchaseOrderDashboard.Models;
 using Courses.Demos.Server;
 using Courses.Demos.Server.Clients;
-using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +21,11 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<IPurchaseOrderAPI, PurchaseOrderAPI>();
 builder.Services.AddScoped<IProductApi, ProductAPI>();
 
+builder.Services.AddBlazoredLocalStorage();
+
 var app = builder.Build();
+
+
 
 app.UseSwagger();
 

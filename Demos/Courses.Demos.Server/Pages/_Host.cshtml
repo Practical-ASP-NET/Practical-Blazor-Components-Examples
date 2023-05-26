@@ -1,6 +1,10 @@
 ﻿@page "/"
-@using Courses.Demos.Server
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Request.Query.TryGetValue("wasm", out var wasmMode );
+    bool wasm = wasmMode == "True";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +20,16 @@
 </head>
 <body>
 
-<div>
-    <component type="typeof(App)" render-mode="Server"/>
-</div>
-
+@if (wasm)
+{
+    <component type="typeof(Courses.Demos.App)" render-mode="WebAssembly"/>
+    <script src="_framework/blazor.webassembly.js"></script>
+}
+else
+{
+    <component type="typeof(Courses.Demos.Server.App)" render-mode="Server"/>
     <script src="_framework/blazor.server.js"></script>
+}
 
 </body>
 </html>
