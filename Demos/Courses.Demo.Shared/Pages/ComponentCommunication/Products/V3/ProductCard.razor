@@ -1,0 +1,17 @@
+﻿@using Courses.Demo.Shared
+@using Courses.Demo.Shared.Contracts
+
+<Card Link="details" LinkText="view" Title="@Product.Name" Style="@FeaturedStyle(Product)">
+    <p>@Product.Description</p>
+    <p>@Product.Price</p>
+</Card>
+
+@code {
+
+    [Parameter]
+    public Product Product { get; set; }
+
+    string FeaturedStyle(Product product) 
+        => product.Featured ? "border: 3px solid #3e6dbf" : "";
+
+}

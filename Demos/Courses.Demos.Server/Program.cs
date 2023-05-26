@@ -1,5 +1,9 @@
+using Blazored.LocalStorage;
 using Carter;
-using Courses.Demos.Pages.PurchaseOrderDashboard.Models;
+using Courses.Demo.Shared.Contracts;
+using Courses.Demo.Shared.Pages.PurchaseOrderDashboard.Models;
+using Courses.Demos.Server;
+using Courses.Demos.Server.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,26 +15,41 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCarter();
 builder.Services.AddSingleton<PurchaseOrderStore>();
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+
+builder.Services.AddScoped<IPurchaseOrderAPI, PurchaseOrderAPI>();
+builder.Services.AddScoped<IProductApi, ProductAPI>();
+
+builder.Services.AddBlazoredLocalStorage();
 
 var app = builder.Build();
+
+
+
+app.UseSwagger();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseWebAssemblyDebugging();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.MapCarter();
 
+app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
-app.MapFallbackToFile("index.html");
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+app.UseRouting();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
 app.Run();

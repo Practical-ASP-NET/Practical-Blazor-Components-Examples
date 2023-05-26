@@ -1,4 +1,6 @@
-﻿namespace Courses.Demos.Pages.PurchaseOrderDashboard.Models;
+﻿using Courses.Demo.Shared.Contracts;
+
+namespace Courses.Demo.Shared.Pages.PurchaseOrderDashboard.Models;
 
 public class PurchaseOrderStore
 {
@@ -33,13 +35,13 @@ public class PurchaseOrderStore
 
     public PurchaseOrder Get(Guid Id)
     {
-        return _purchaseOrders.FirstOrDefault(x => x.Id == Id);
+        return _purchaseOrders.FirstOrDefault(x => x.Id == Id) ?? new PurchaseOrder();
     }
 
     public void ReceiveMaterial(Guid orderId, Guid lineId)
     {
         var po = _purchaseOrders.FirstOrDefault(x => x.Id == orderId);
-        po.ReceiveMaterial(lineId);
+        po?.ReceiveMaterial(lineId);
     }
 
     public void Reset()

@@ -1,0 +1,56 @@
+﻿@using Courses.Demo.Shared
+@using Courses.Demo.Shared.Contracts
+@inject IPurchaseOrderAPI Api
+
+<h3>Outstanding Materials</h3>
+
+<p>Click a line to mark it as "received"</p>
+
+@if (lines != null)
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Rate</th>
+            <th>Amount</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var line in lines)
+        {
+            <tr class="p-2">
+                <td>@line.Description</td>
+                <td>@line.Rate</td>
+                <td>@line.Amount</td>
+                <td>
+                    <button @onclick="() => Receive(line)">
+                        Receive
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    IEnumerable<PurchaseOrder.Line>? lines;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var purchaseOrder = await Api.Get(Id);
+        lines = purchaseOrder.Lines.Where(x => !x.Received);
+    }
+
+    private async Task Receive(PurchaseOrder.Line line)
+    {
+        await Api.ReceiveMaterial(Id, line.Id);
+    }
+
+}
