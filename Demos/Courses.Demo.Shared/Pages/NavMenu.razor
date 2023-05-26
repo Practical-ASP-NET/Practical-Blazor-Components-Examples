@@ -24,21 +24,12 @@
 
     async Task ToggleWASM()
     {
-        Console.WriteLine("WASM IS " + wasm);
-        
         var uriBuilder = new UriBuilder(NavigationManager.Uri)
         {
             Query = wasm ? string.Empty : "wasm"
         };
      
         NavigationManager.NavigateTo(uriBuilder.ToString(), new NavigationOptions { ForceLoad = true });
-    }
-
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        Console.WriteLine("WASM IS " + wasm);
-        base.OnAfterRender(firstRender);
     }
 
 }
