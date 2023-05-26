@@ -1,8 +1,9 @@
 using Courses.Demo.Shared;
+using Courses.Demo.Shared.Contracts;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Courses.Demos;
 using Refit;
+using Courses.Demos;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

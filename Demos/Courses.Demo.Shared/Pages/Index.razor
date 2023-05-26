@@ -1,0 +1,88 @@
+﻿@page "/Examples"
+@page "/"
+
+@using System.Reflection
+
+<h2>It works!</h2>
+
+<p>Thanks for downloading the examples project.</p>
+
+<p>As you work through the workshop you'll be directed to specific folders, containing standalone examples for you to work with.</p>
+
+<p>You'll find some of those linked below, but do check out the <strong>Pages</strong> folder in the <strong>Courses.Demos project</strong>, as not everything is linked to from this page.</p>
+
+<p>Any problems, let me know 👍</p>
+
+<h3>Exercises</h3>
+
+<ul>
+    @foreach (var route in routableComponents)
+    {
+        <li>
+            <a href="@route">@route</a>
+        </li>
+    }
+</ul>
+
+<h2>Purchase Orders</h2>
+<a href="/purchase-orders">Purchase Orders Demo</a>
+
+<h2 class="mt-4">Products</h2>
+<a href="/products">Products Demo</a>
+
+@code {
+
+    private List<string> routableComponents;
+
+    protected override Task OnInitializedAsync()
+    {
+        routableComponents = GetRoutesToRender(Assembly.GetExecutingAssembly());
+        return base.OnInitializedAsync();
+    }
+
+    List<string> GetRoutesToRender(Assembly assembly)
+    {
+    // Get all the components whose base class is ComponentBase
+        var components = assembly
+            .ExportedTypes
+            .Where(t => t.IsSubclassOf(typeof(ComponentBase)));
+
+        var routes = components
+            .Select(GetRouteFromComponent)
+            .Where(route => route is not null)
+            .Where(x=>x.StartsWith("/exercises"))
+            .ToList();
+
+        return routes;
+    }
+
+    private string? GetRouteFromComponent(Type component)
+    {
+        var attributes = component.GetCustomAttributes(inherit: true);
+
+        var routeAttribute = attributes.OfType<RouteAttribute>().FirstOrDefault();
+
+        if (routeAttribute is null)
+        {
+    // Only map routable components
+            return null;
+        }
+
+        var route = routeAttribute.Template;
+
+        if (string.IsNullOrEmpty(route))
+        {
+            throw new Exception($"RouteAttribute in component '{component}' has empty route template");
+        }
+
+
+    // Doesn't support tokens yet
+        if (route.Contains('{'))
+        {
+            return null;
+        }
+
+        return route;
+    }
+
+}

@@ -1,0 +1,48 @@
+﻿@using Courses.Demo.Shared
+@using Courses.Demo.Shared.Contracts
+@inject IPurchaseOrderAPI Api
+
+<h3>Received Materials</h3>
+
+@if (lines == null || !lines.Any())
+{
+    <p>Nothing to see here, yet!</p>
+}
+
+@if (lines != null && lines.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var po in lines)
+        {
+            <tr class="p-2">
+                <td>@po.Description</td>
+                <td>@po.Rate</td>
+                <td>@po.Amount</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+   
+    protected override async Task OnInitializedAsync()
+    {
+        var purchaseOrder = await Api.Get(Id);
+        lines = purchaseOrder.Lines.Where(x => x.Received);
+    }
+    
+    IEnumerable<PurchaseOrder.Line>? lines { get; set; }
+
+}

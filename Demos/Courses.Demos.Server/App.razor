@@ -1,6 +1,7 @@
 ﻿@using Courses.Demo.Shared.Shared
+@using Courses.Demo.Shared.Pages
 
-<Router AppAssembly="@typeof(App).Assembly">
+<Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="new []{typeof(Banners).Assembly}">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>

@@ -1,5 +1,5 @@
 ﻿using Carter;
-using Courses.Demos.Pages.PurchaseOrderDashboard.Models;
+using Courses.Demo.Shared.Pages.PurchaseOrderDashboard.Models;
 
 namespace Courses.Demos.Server.Endpoints.PurchaseOrder;
 

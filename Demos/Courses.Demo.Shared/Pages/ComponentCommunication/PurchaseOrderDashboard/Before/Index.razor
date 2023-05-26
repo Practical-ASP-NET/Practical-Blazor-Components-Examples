@@ -1,0 +1,30 @@
+﻿@page "/PO/{Id:guid}"
+@using Courses.Demo.Shared
+@using Courses.Demo.Shared.Contracts
+@inject IPurchaseOrderAPI PurchaseOrderApi
+
+<h3 class="mb-4">Purchase Order Details</h3>
+
+<div class="d-flex gap-2">
+    <div class="p-2 border border-1 flex-grow-1" id="outstanding">
+        <Outstanding Id="Id"/>
+    </div>
+    <div class="p-2 border border-1 flex-grow-1" id="received">
+        <Received Id="Id"/>
+    </div>
+</div>
+
+<div class="btn btn-danger mt-4" @onclick="ResetPO">Reset PO Data</div>
+
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private async Task ResetPO()
+    {
+        await PurchaseOrderApi.Reset();
+    }
+
+}

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
@@ -7,7 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Markdig" Version="0.31.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
       <PackageReference Include="Refit" Version="6.3.2" />
     </ItemGroup>
-
+    
 </Project>

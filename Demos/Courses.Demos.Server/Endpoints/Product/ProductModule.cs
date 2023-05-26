@@ -12,7 +12,7 @@ public class ProductModule : ICarterModule
     private IResult GetAll(HttpContext context)
     {
         var products = Enumerable.Range(1, 10)
-            .Select(i => new Demo.Shared.Product
+            .Select(i => new Demo.Shared.Contracts.Product
             {
                 Name = $"Product {i}",
                 Description = $"Description {i}",
