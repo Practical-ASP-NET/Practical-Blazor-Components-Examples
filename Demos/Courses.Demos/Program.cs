@@ -1,15 +1,16 @@
 using Blazored.LocalStorage;
 using Courses.Demo.Shared.Contracts;
-using Microsoft.AspNetCore.Components.Web;
+using Courses.Demo.Shared.Pages.ComponentDesign.ShoppingCart;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Refit;
-using Courses.Demos;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 // builder.RootComponents.Add<App>("#app");
 // builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddBlazoredLocalStorage();
+
+builder.Services.AddScoped<ICartService, HardcodedCartService>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

@@ -1,0 +1,48 @@
+﻿@page "/exercises/shoppingcart"
+
+@inject ICartService CartService
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Shopping Cart</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in CartItems)
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.TotalPrice</td>
+                    </tr>
+                }
+                </tbody>
+                <tfoot>
+                <tr class="fw-bold">
+                    <td colspan="2" class="font-weight-bold text-right">Total:</td>
+                    <td>@TotalSum.ToString("C")</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<CartItem> CartItems { get; set; }
+
+    private decimal TotalSum => CartItems.Sum(item => item.TotalPrice);
+
+    protected override async Task OnInitializedAsync()
+    {
+        CartItems = await CartService.GetCartItemsAsync();
+    }
+
+}
