@@ -6,12 +6,13 @@
     <div class="row">
         <div class="col-12">
             <h2>Shopping Cart</h2>
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
+            <table class="table">
+                <thead>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,12 +22,13 @@
                         <td>@item.Product.Name</td>
                         <td>@item.Quantity</td>
                         <td>@item.TotalPrice</td>
+                        <td><button @onclick="@(() => RemoveItem(item.Id))">Remove</button></td>
                     </tr>
                 }
                 </tbody>
                 <tfoot>
                 <tr class="fw-bold">
-                    <td colspan="2" class="font-weight-bold text-right">Total:</td>
+                    <td colspan="3" class="font-weight-bold text-right">Total:</td>
                     <td>@TotalSum.ToString("C")</td>
                 </tr>
                 </tfoot>
@@ -36,13 +38,19 @@
 </div>
 
 @code {
+    
     private List<CartItem> CartItems { get; set; }
 
     private decimal TotalSum => CartItems.Sum(item => item.TotalPrice);
 
     protected override async Task OnInitializedAsync()
     {
-        CartItems = await CartService.GetCartItemsAsync();
+        CartItems = (await CartService.GetCartItemsAsync()).ToList();
     }
 
+    void RemoveItem(int id)
+    {
+        var itemToRemove = CartItems.Single(x => x.Id == id);
+        CartItems.Remove(itemToRemove);
+    }
 }
