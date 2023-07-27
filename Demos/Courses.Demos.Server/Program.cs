@@ -1,6 +1,7 @@
 using Blazored.LocalStorage;
 using Carter;
 using Courses.Demo.Shared.Contracts;
+using Courses.Demo.Shared.Pages.ComponentDesign.ShoppingCart;
 using Courses.Demo.Shared.Pages.PurchaseOrderDashboard.Models;
 using Courses.Demos.Server;
 using Courses.Demos.Server.Clients;
@@ -20,6 +21,7 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddScoped<IPurchaseOrderAPI, PurchaseOrderAPI>();
 builder.Services.AddScoped<IProductApi, ProductAPI>();
+builder.Services.AddScoped<ICartService, HardcodedCartService>();
 
 builder.Services.AddBlazoredLocalStorage();
 
