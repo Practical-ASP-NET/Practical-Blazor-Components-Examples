@@ -5,10 +5,17 @@
 
 @if (poList != null)
 {
-    @foreach (var po in poList)
-    {
-        <a href="/PO/@po.Id">View Purchase Order Details</a>
-    }
+    <ul>
+        @foreach (var po in poList)
+        {
+            <li>
+                <a href="/PO/@po.Id">View Purchase Order Details (Before/Not Working)</a>
+            </li>
+            <li>
+                <a href="/PO/v2/@po.Id">View Purchase Order Details (After)</a>
+            </li>
+        }
+    </ul>
 }
 
 @code {
