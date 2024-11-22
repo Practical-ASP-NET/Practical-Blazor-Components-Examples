@@ -1,12 +1,12 @@
 ﻿@inject NavigationManager NavigationManager
 
 <header class="navbar navbar-expand bg-light border-bottom">
-
+    
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Practical Blazor Components - Examples and Exercises</a>
         <section class="d-flex flex-row gap-4 align-items-center">
-            <span>Hosting Mode: @(wasm ? "WASM" : "Server")</span>
-            <button @onclick="ToggleWASM">@hostingSwitchText</button>
+            <span>Hosting Mode: @(RendererInfo.Name)</span>
+            <button @onclick="ToggleWASM">@HostingSwitchText</button>
         </section>
     </div>
 
@@ -14,22 +14,18 @@
 
 @code {
 
-    bool wasm;
-    string hostingSwitchText => wasm ? "Use Server" : "Use WASM";
+    bool Wasm => RendererInfo.Name == "WebAssembly";
+    string HostingSwitchText => Wasm ? "Use Server" : "Use WASM";
 
-    protected override void OnInitialized()
-    {
-        wasm = new Uri(NavigationManager.Uri).Query.Contains("wasm");
-    }
-
-    async Task ToggleWASM()
+    Task ToggleWASM()
     {
         var uriBuilder = new UriBuilder(NavigationManager.Uri)
         {
-            Query = wasm ? string.Empty : "wasm"
+            Query = Wasm ? string.Empty : "wasm"
         };
      
         NavigationManager.NavigateTo(uriBuilder.ToString(), new NavigationOptions { ForceLoad = true });
+        return Task.CompletedTask;
     }
 
 }
